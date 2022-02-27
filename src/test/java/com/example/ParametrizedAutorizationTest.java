@@ -2,6 +2,7 @@ package com.example;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -24,13 +25,15 @@ public class ParametrizedAutorizationTest {
     }
 
     @CsvSource(value = {
-            "test27022022| S8s9x0op",
-            "testvtoroi27022022| S7sK8!sA"
+            "test27022022| S8s9x0op | - Первые тестовые данные.",
+            "testvtoroi27022022| S7sK8!sA | - бхъВторые тестовые данные."
     },
             delimiter = '|'
     )
-    @ParameterizedTest(name = "Проверка авторизации в почте Яндекс по логину и паролю \"{0}\"")
-    void autorizationTest(String login, String password) throws InterruptedException {
+    @ParameterizedTest(name = "Проверка авторизации в почте Яндекс по логину и паролю: {2}")
+    void autorizationTest(String login, String password, String descriptionTest) throws InterruptedException {
+        Selenide.clearBrowserCookies();
+        Selenide.clearBrowserLocalStorage();
         $(byText("Войти в почту")).click();
         $("[data-lego='react']").sibling(0).click();
         $("#passp-field-login").setValue(login);
