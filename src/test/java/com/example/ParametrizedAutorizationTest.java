@@ -26,7 +26,7 @@ public class ParametrizedAutorizationTest {
 
     @CsvSource(value = {
             "test27022022| S8s9x0op | - Первые тестовые данные.",
-            "testvtoroi27022022| S7sK8!sA | - бхъВторые тестовые данные."
+            "testvtoroi27022022| S7sK8!sA | - Вторые тестовые данные."
     },
             delimiter = '|'
     )
