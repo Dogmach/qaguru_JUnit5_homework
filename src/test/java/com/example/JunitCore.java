@@ -1,6 +1,8 @@
 package com.example;
 
 import org.junit.jupiter.api.*;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -107,7 +109,6 @@ public class JunitCore {
                 System.out.println("Test passed: " + method.getName());
             }
         }
-
         // вывести результаты
     }
 }
